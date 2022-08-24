@@ -40,7 +40,7 @@ St Basils is a UK-based organisation focused on helping young people at risk of 
 The result of the project is the dashboard with the tools helping to estimate the complexity score of the incoming young person and the relationship between outcome and provided support.
 
 The dashboard consists of several sections:
-1. **Accomodation & EET***: estimate the accomodation and EET outcomes, use them to estimate the complexity score of the incoming young person. The page also contains descriptive plots, which show the relationship between the positive outcomes and different support types.
+1. **Accomodation & EET**: estimate the accomodation and EET outcomes, use them to estimate the complexity score of the incoming young person. The page also contains descriptive plots, which show the relationship between the positive outcomes and different support types.
 
 2. **Star score**: estimate the final star score metric (an internal metric specific to ST Basils).
 
