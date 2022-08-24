@@ -1,0 +1,463 @@
+<div id="wrapper">
+    <html>
+        <head>
+            <title>
+                Outcome Estimator
+            </title>
+            <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/styles.css')}}">
+            <!-- <script type="text/javascript" src="static/scripts/main.js"></script> -->
+    
+    
+        </head>
+        <body>
+    
+            <script>
+
+                function onClick(element) {
+                document.getElementById("img01").src = element.src;
+                document.getElementById("modal01").style.display = "block";
+                }  
+            </script>
+            
+    
+
+
+            <div><img src='static/stb.png' height="65" id="mainicon"></div>
+            
+            <div><nav>
+    
+                <ul class="menu">
+    
+                  <li><a href={{url_for('home')}}>Accomodation & EET</a></li>
+                  <li><a href={{url_for('starindex')}}>Star score</a></li>
+                  <li><a href={{url_for('report')}}>Dose response app</a></li>  
+                  <li><a href={{url_for('report')}}>Summary report</a></li>
+                </ul>
+              </nav>
+    
+            </div>
+    
+            <!-- <center><h2>St Basil's</h2></center> -->
+            <center><h2>OUTCOME ESTIMATION TOOL REQUIRED FIELD REMEMBER</h2></center>
+            <br>
+    
+    
+    
+    
+    
+    
+    
+    <form action="/predict" method="POST" autocomplete="on">
+        <table id="boxes" class="center">
+    
+            <tr> <!--SPLITTING TABLE INTO TWO COLUMNS: INPUTS AND OUTPUTS-->
+    
+    
+    <!-- INPUTS COLUMN -->
+    <td style="width:25%"></td>
+    <td id="BIGLEFT">
+    
+    
+        <!-- INPUT ROW -->
+        <table>
+        <tr>
+            <td id="left">
+                <label for="Gender">Gender</label><br>
+                <select name="Gender" id="Gender" required>
+                    <option style="display:none"></option>
+                    <option value="Male">Male</option>
+                    <option value="Female" >Female</option>
+                    <option value="Trans_Gender" >Transgender</option>
+                    <option value="">Other</option>
+                </select><br>
+    
+                <label for="Nationality">Nationality</label><br>
+                <select name="Nationality" id="Nationality" required>
+                    <option style="display:none"></option>
+                    <!-- <option disabled selected value> -- select an option -- </option> -->
+                    <option value="UK National Resident in UK">UK National Resident in UK</option>
+                    <option value="Non-EEA country national">Non-EEA country national</option>
+                    <option value="Other EEA country national">Other EEA country national</option>
+                    <option value="">Unknown</option>
+                </select><br>
+                
+                <label for="Sexual Orientation">Sexual orientation</label><br>
+                <select name="Sexual Orientation" id="Sexual Orientation" required>
+                    <option style="display:none"></option>
+                    <option value="Heterosexual or Straight">Heterosexual or Straight</option>
+                    <option value="Bisexual">Bisexual</option>
+                    <option value="Gay or Lesbian">Gay or Lesbian</option>
+                    <option value="Other">Other</option>
+                    <option value="Refused to answer">Refused to answer</option>
+                    <option value="">Unknown</option>
+                </select><br>
+    
+                <label for="Marital Status">Marital status</label><br>
+                <select name="Marital Status" id="Marital Status" required>
+                    <option style="display:none"></option>
+                    <option value="Single">Single</option>
+                    <option value="Single Parent">Single Parent</option>
+                    <option value="Single Lone Parent">Single Lone Parent</option>
+                    <option value="C">C</option>
+                    <option value="Other" >Other</option>
+                    <option value="">Unknown</option>
+                </select><br>
+    
+                <label for="Religion">Religion</label><br>
+                <select name="Religion" id="Religion" required>
+                    <option style="display:none"></option>
+                    <option value="Christian - Other">Christian</option>
+                    <option value="Muslim">Muslim</option>
+                    <option value="fill">Other</option>
+                    <option value="No Religion">No religion</option>
+                    <option value="Refused to answer">Refused to answer</option>
+                    <option value="">Unknown</option>
+                </select><br>
+                
+                <label for="Preferred Language">Preferred language</label><br>
+                <select name="Preferred Language" id="Preferred Language" required>
+                    <option style="display:none"></option>
+                    <option value="** English">English</option>
+                    <option value="** Believed to be English">Believed to be English</option>
+                    <option value="fill">Other</option>
+                    <option value="">Unknown</option>
+                </select><br>
+    
+                <label for="EET status">EET status</label><br>
+                <select name="EET status" id="EET status" required>
+                    <option style="display:none"></option>
+                    <option value="EET">EET</option>
+                    <option value="NEET">NEET</option>
+                    <option value="">Other</option>
+                    <option value="Not Known">Unknown</option>
+                </select><br>
+    
+                <label for="Economic Status">Economic status</label><br>
+                <select name="Economic Status" id="Economic Status" required>
+                    <option style="display:none"></option>
+                    <option value="Full Time Work (30+ hrs)">Full time work (30+ hrs)</option>
+                    <option value="Part Time Work (<30 hrs)">Part time work (&lt;30 hrs)</option>
+                    <option value="NEET But NO Beneifts">NEET but NO beneifts</option>
+                    <option value="Receipt of Benefits">Receipt of benefits</option>
+                    <option value="Job Seeker">Job seeker</option>
+                    <option value="No Income">No income</option>
+                    <option value="Full Time Student">Full time student</option>
+                    <option value="College">College</option>
+                    <option value="Not Seeking Work">Not seeking work</option>
+                </select><br>
+    
+                <label for="Acc Type prev">Previous accomodation type</label><br>
+                <select name="Acc Type prev" id="Acc Type prev" required>
+                    <option style="display:none"></option>
+                    <option value="Living with Family (Family Home)">Living with family (Family home)</option>
+                    <option value="Living with Family (Family Other)">Living with family (Family other)</option>
+                    <option value="Living with Friends ">Living with friends</option>
+                    <option value="Social rented supported housing or hostel ">Social rented supported housing or hostel</option>
+                    <option value="Temporary Accommodation">Temporary accommodation</option>
+                    <option value="Private Rented Sector: HMO">Private rented sector: HMO</option>
+                    <option value="Looked after children placement ">Looked after children placement </option>
+                    <option value="No Fixed Abode">No fixed abode</option>
+                    <option value="Rough sleeping (in judgement of assessor) ">Rough sleeping (in judgement of assessor)</option>
+                    <option value="fill">Other</option>
+                    <option value="">Unknown</option>
+                </select><br>
+                    
+                <label for="Area">Area</label><br>
+                <select name="Area" id="Area" required>
+                    <option style="display:none"></option>
+                    <option value="Birmingham">Birmingham</option>
+                    <option value="Coventry">Coventry</option>
+                    <option value="Sandwell">Sandwell</option>
+                    <option value="Solihull">Solihull</option>
+                    <option value="Walsall">Walsall</option>
+                    <option value="Warwickshire">Warwickshire</option>
+                    <option value="Worcestershire">Worcestershire</option>
+                </select><br>
+                
+                <label for="Service Type">Service type</label><br>
+                <select name="Service Type" id="Service Type" required>
+                    <option style="display:none"></option>
+                    <option value="Floating Support">Floating support</option>
+                    <option value="Accommodation">Accommodation</option>
+                    <option value="Rough Sleepers">Rough sleepers</option>
+                    <option value="Supported Lodgings">Supported lodgings</option>
+                </select><br>
+            </td>
+    
+    
+            <td id="right">
+                <!-- <input type="checkbox" id="Medical Issue" name="Medical Issue" value="Yes">
+                <label for="Medical Issue">Medical issues &nbsp; &nbsp; &nbsp;</label><br> -->
+    
+                <label for="Medical Issue">Medical issues</label><br>
+                <select name="Medical Issue" id="Medical Issue" required>
+                    <option style="display:none"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="">No</option>
+                </select><br>
+                 
+                <label for="TotalMentalHealth">Total mental health disabilities</label><br>
+                <input type="number" id="TotalMentalHealth" name="TotalMentalHealth" min="0" max="10" value=0><br>
+                
+                <label for="TotalDisabilty">Total physical health disabilities</label><br>
+                <input type="number" id="TotalDisabilty" name="TotalDisabilty" min="0" max="10" value=0><br>
+                
+                <label for="B1">B1</label><br>
+                <select name="B1" id="B1" required>
+                    <option style="display:none"></option>
+                    <option value="Housing Benefit" >Housing Benefit</option>
+                    <option value="Universal Credit">Universal Credit</option>
+                    <option value="No benefits">No benefits</option>
+                    <option value="Don't Know / Refused">Unknown</option>
+                </select><br>
+    
+                <label for="C1">C1</label><br>
+                <select name="C1" id="C1" required>
+                    <option style="display:none"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="N/A - Not Applicable">Not applicable</option>
+                    <option value="">Unknown</option>
+                </select><br>
+    
+                <label for="H1">H1</label><br>
+                <select name="H1" id="H1" required>
+                    <option style="display:none"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="">No</option>
+                </select><br>
+    
+                <label for="I1">I1</label><br>
+                <select name="I1" id="I1" required>
+                    <option style="display:none"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="">No</option>
+                </select><br>
+    
+                <label for="G1">G1</label><br>
+                <select name="G1" id="G1" required>
+                    <option style="display:none"></option>
+                    <option value="Yes">Yes</option>
+                    <option value="">No</option>
+                </select><br>
+    
+                <label for="Scheme">Scheme</label><br>
+                <select name="Scheme" id="Scheme" required>
+                    <option style="display:none"></option>
+                    <option value="AB" >AB</option>
+                    <option value="AC" >AC</option>
+                    <option value="AE" >AE</option>
+                    <option value="AH" >AH</option>
+                    <option value="AL" >AL</option>
+                    <option value="AM" >AM</option>
+                    <option value="AT" >AT</option>
+                    <option value="AU" >AU</option>
+                    <option value="AY" >AY</option>
+                    <option value="BD" >BD</option>
+                    <option value="BJ" >BJ</option>
+                    <option value="BM" >BM</option>
+                    <option value="CC" >CC</option>
+                    <option value="CD" >CD</option>
+                    <option value="fill">Other</option>
+                </select><br>
+    
+                <label for="Time per Session">Time per session</label><br>
+                <input type="number" id="Time per Session" name="Time per Session" min="10" max="120" value=10><br>
+                
+                <label for="Session per week">Session per week</label><br>
+                <input type="number" id="Session per week" name="Session per week" min="1" max="10" value=1><br>
+    
+            </td>
+        </tr>
+        </table>
+    
+        <!-- SLIDER ROW -->
+        <center>
+        <label for="mixer" id="mixertBext">Complexity score contibution</label><br>
+    
+        <input name="mixer" type="range" min="0" max="100" value="50" class="slider" id="mixer" step="10"><br>
+        
+        <div class="box-minmax">
+            <span>Accomodation outcome</span><span>EET outcome</span>
+        </div>
+    
+    </center>
+        <br><br>
+    
+        <!-- BUTTON ROW -->
+        <!-- <tr id="buttondiv" class="form-group"> -->
+        <center>
+            <button class="button">
+                <!-- <button type="submit">Predict outcomes</button> -->
+                Predict outcomes
+            </button>
+        </center>
+        <!-- </tr> -->
+    
+    
+    </td>
+    
+    
+    <td style="width:25%"></td>
+    
+    
+    </tr> <!--CLOSING THE TABLE TR-->
+    
+    </table>
+    <br>
+    
+    <div id="RESULTPAGE"></div>
+
+    {% if hh=='yes' %}
+
+    <center><h2>ESTIMATED RESULTS</h2></center>
+    
+    
+    
+    <table>
+        <td id="BIGRIGHT">
+            <!-- PREDICTION TEXT ROW -->
+            <center>
+                <p id="predictiontext">{{ prediction_text }}</p>
+                <p id="predictiontext">{{ complexity_score }}</p>
+        
+            <!-- PLOTS ROW -->
+
+            <table>
+            <tr>
+                <canvas id="DemoCanvas"></canvas>
+                <canvas id="DemoCanvas2"></canvas>
+                <canvas id="DemoCanvas3"></canvas>
+            </tr>
+
+            <tr>
+                    <div class="box-minmax-bar">
+                        <div id="spans"><span>0</span><span>min</span><span>THIS</span><span>max</span><span>100</span></div>
+                        <div class="emptydiv"></div>
+                        <div id="spans"><span>0</span><span>min</span><span>THIS</span><span>max</span><span>100</span></div>
+                        <div class="emptydiv"></div>
+                        <div id="spans"><span>0</span><span>min</span><span>THIS</span><span>max</span><span>100</span></div>
+                    </div>
+            </tr>
+            </table>
+
+
+        <!-- <canvas id="DemoCanvas"></canvas> -->
+
+        <script>
+        var canvases = ["DemoCanvas", "DemoCanvas2", "DemoCanvas3"]
+        for (var i = 0; i < 3; i++) {
+            var canvas = document.getElementById(canvases[i]);
+            console.log(canvases[i])
+            if (canvas.getContext) {
+            var ctx = canvas.getContext('2d');
+            ctx.lineJoin = "round";
+            ctx.lineWidth = "25";
+            ctx.strokeStyle = "#EEF1FF";
+            ctx.strokeRect(20, 50, 250, 20);
+            ctx.strokeStyle = "#73A1FF";
+            ctx.strokeRect(150, 50, 50, 20);
+            ctx.lineJoin = "bevel";
+            ctx.lineWidth = "15";
+            ctx.strokeStyle = "#0021B6";
+            ctx.strokeRect(175, 46, 2, 28);
+            }
+        }
+        
+        </script>
+
+
+            <br><br>
+            
+        
+        </center>
+        </td>
+    
+    
+    </table>
+    
+    
+    
+    
+    <center><h2>ACCOMODATION OUTCOMES</h2></center>
+    
+    
+    <table id="acc">
+        <td id="outcomeleft">
+        <img src='static/graphs/tps_tenancy.png' id="plot" onclick="onClick(this)" class="modal-hover-opacity">
+        <img src='static/graphs/spw_tenancy.png'id="plot" onclick="onClick(this)" class="modal-hover-opacity">
+        <img src='static/graphs/scheme.png' id="plot" onclick="onClick(this)" class="modal-hover-opacity">
+    
+
+        <!-- <img src='static/graphs/tps_tenancy.png' id="plot1" class="zoomable">
+        <img src='static/graphs/spw_tenancy.png' id="plot2" class="zoomable">
+        <img src='static/graphs/scheme.png' id="plot3" class="zoomable"> -->
+    
+
+    
+    <div id="modal01" class="modal" onclick="this.style.display='none'">
+      <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <div class="modal-content">
+        <img id="img01" style="max-width:100%">
+      </div>
+    </div>
+
+
+        </td> 
+    
+    
+        </table>
+        
+        <center><h2>EDUCATION AND EMPLOYABILITY OUTCOMES</h2></center>
+    
+        
+        <table id="eet">
+            <td id="outcomeright">
+    
+                <img src='static/graphs/tps_eet.png' id="plot"  onclick="onClick(this)" class="modal-hover-opacity">
+                <img src='static/graphs/spw_eet.png' id="plot"  onclick="onClick(this)" class="modal-hover-opacity">
+    
+                <!-- <img src='static/graphs/tps_eet.png' id="plot4" class="zoomable">
+                <img src='static/graphs/spw_eet.png' id="plot5" class="zoomable"> -->
+    
+            </td>
+            {% else %}
+            {% endif %}
+    
+    
+    
+        </table>
+    
+    
+        <tr>
+    
+    
+        </tr>
+    
+    
+    
+    
+    
+    
+    
+    </tr>
+    </table>
+    
+    </form>
+    
+    
+
+    <!-- <footer>
+        <right>
+        Copyright © 2022 All Rights Reserved by St Basils.
+    </right>
+    </footer> -->
+
+
+    
+    
+    </body>
+    </html>
+    
+    
+    </div>

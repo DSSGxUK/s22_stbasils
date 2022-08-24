@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+
+html, body{
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  scroll-behavior: smooth;
+
+}
+
+
+#wrapper {
+  margin-left:auto;
+  margin-right:auto;
+  width: 1500px;
+}
+
+body{
+/* margin-bottom: 5%; */
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center; /* error? this */
+  font-family: "Varela Round", sans-serif;
+  font-size: 14px;
+  /* position: relative; */
+  /* background-image: linear-gradient(to bottom right, #ffa578, #ff675a); */
+}
+
+h2 {
+  color: #000000;
+  text-align: center;
+  margin-bottom: 0px;
+  letter-spacing: 1.2px;
+}
+
+h3 {
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+ #boxes {
+  /* float: center; */
+  /* margin: 0 auto; */
+  /* text-align: center; */
+  width: 1500px;
+  /* margin-left: 300px;
+  margin-right: 300px; */
+  /* position: relative;
+  top: 0%; */
+ }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#mainicon {
+margin-top: 0px;
+margin-left: 50px;
+position: absolute;
+}
+
+#pdf {
+    /* position: absolute; */
+    height: 600px;
+    width: 80%;
+    padding-bottom: 80px;
+    padding-top: 50px;
+    border: #fff;
+}
+
+
+
+
+
+
+
+
+                                  /* MENU */
+
+
+.menu {
+display: flex;
+justify-content: center;
+align-items: center;
+max-width: 1500px;
+/* margin: 0 auto; */
+/* height: 100vh; */
+list-style: none;
+letter-spacing: 1.1px;
+}
+
+.menu li {
+width: 180px;
+height: 50px;
+transition: background-position-x 0.9s linear;
+text-align: center;
+}
+.menu li a {
+font-size: 14px;
+color: #777;
+text-decoration: none;
+transition: all 0.45s;
+}
+.menu li:hover a {
+/* color: #d94f5c; */
+color: red;
+}
+.menu li:not(:last-child) {
+margin-right: 30px;
+}
+
+
+
+
+                /* DOWNLOAD BUTTON */
+
+
+
+.button{
+  position: relative;
+  /* width: 960px; */
+  background-color: black;
+  border-radius: 4em;
+  font-size: 16px;
+  color: white;
+  padding: 0.8em 1.8em;
+  cursor:pointer;
+  user-select:none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  /* -webkit-transition-duration: 0.4s; Safari */
+}
+
+.button:hover {
+  transition-duration: 0.1s;
+  background-color: #3A3A3A;
+}
+
+.button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.5s;
+  box-shadow: 0 0 10px 40px white;
+}
+
+.button:active:after {
+  box-shadow: 0 0 0 0 white;
+  position: absolute;
+  border-radius: 4em;
+  left: 0;
+  top:0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.button:active {
+  top: 1px;
+}
+
+
+                

@@ -1,0 +1,62 @@
+<div id="wrapper">
+    <html>
+        <head>
+            <title>
+                Outcome Estimator
+            </title>
+            <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/reportstyle.css')}}">
+    
+    
+        </head>
+        <body>
+    
+    
+            <div><img src='static/stb.png' height="65" id="mainicon"></div>
+            
+            <div><nav>
+    
+                <ul class="menu">
+    
+                    <li><a href={{url_for('home')}}>Accomodation & EET</a></li>
+                    <li><a href={{url_for('starindex')}}>Star score</a></li>
+                    <li><a href={{url_for('report')}}>Dose response app</a></li>
+                    <li><a href={{url_for('report')}}>Summary report</a></li>
+
+                  </ul>
+              </nav>
+    
+            </div>
+    
+            <!-- <center><h2>St Basil's</h2></center> -->
+            <center><h2>REPORT</h2></center>
+            <br>
+    
+
+    <br>
+
+
+
+    <center>
+
+    <a href="static/draft.pdf" download="Summary Report" class="button">Download PDF file</a>
+
+
+    </center>
+
+
+
+    <br>
+    <center>
+        <iframe src="static/draft.pdf" id="pdf">
+        </iframe>
+
+    </center>
+    
+
+    
+    
+    </body>
+    </html>
+    
+    
+    </div>

@@ -1,0 +1,330 @@
+<div id="wrapper">
+    <html>
+        <head>
+            <title>
+                Outcome Estimator
+            </title>
+            <link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles/starstyle.css')}}">
+    
+    
+        </head>
+        <body>
+    
+    
+            <div><img src='static/stb.png' height="65" id="mainicon"></div>
+            
+            <div><nav>
+    
+                <ul class="menu">
+                    <li><a href={{url_for('home')}}>Accomodation & EET</a></li>
+                    <li><a href={{url_for('starindex')}}>Star score</a></li>
+                    <li><a href={{url_for('report')}}>Dose response app</a></li>  
+                    <li><a href={{url_for('report')}}>Summary report</a></li>
+                </ul>
+              </nav>
+    
+            </div>
+    
+            <!-- <center><h2>St Basil's</h2></center> -->
+            <center><h2>OUTCOME ESTIMATION TOOL</h2></center>
+            <br>
+    
+    
+    
+    
+    
+    
+    
+    <form action="/predictstar" method="POST" autocomplete="on">
+        <table id="boxes" class="center">
+    
+            <tr> <!--SPLITTING TABLE INTO TWO COLUMNS: INPUTS AND OUTPUTS-->
+    
+    
+    <!-- INPUTS COLUMN -->
+    <td style="width:25%"></td>
+    <td id="BIGLEFT">
+    
+    
+        <!-- INPUT ROW -->
+        <table>
+        <tr>
+            <td id="left">
+                <label for="Age.at.Start">Age</label><br>
+                <input type="number" id="Age.at.Start" name="Age.at.Start" min="0" max="120" value=0><br>
+                
+
+                <label for="Medical Issue">Medical issues</label><br>
+                <select name="Medical Issue" id="Medical Issue" required>
+                    <option style="display:none"></option>
+                    <option value=1>Yes</option>
+                    <option value=0>No</option>
+                </select><br>
+
+                <label for="A1">A1</label><br>
+                <select name="A1" id="A1" required>
+                    <option style="display:none"></option>
+                    <option value=0 >Yes</option>
+                    <option value=1>No</option>
+                    <option value=1>Unknown</option>
+                </select><br>
+    
+                <label for="D1">D1</label><br>
+                <select name="D1" id="D1" required>
+                    <option style="display:none"></option>
+                    <option value=0>Yes</option>
+                    <option value=1>No</option>
+                    <option value=1>Unknown</option>
+                </select><br>
+
+                <label for="G1">G1</label><br>
+                <select name="G1" id="G1" required>
+                    <option style="display:none"></option>
+                    <option value=0>Yes</option>
+                    <option value=1>No</option>
+                    <option value=1>Unknown</option>
+                </select><br>
+
+            </td>
+    
+    
+            <td id="right">
+    
+                <label for="EET status">EET status</label><br>
+                <select name="EET status" id="EET status" required>
+                    <option style="display:none"></option>
+                    <option value="EET">EET</option>
+                    <option value="NEET">NEET</option>
+                    <option value="">Other</option>
+                    <option value="Not Known">Unknown</option>
+                </select><br>
+
+                <label for="Area">Area</label><br>
+                <select name="Area" id="Area" required>
+                    <option style="display:none"></option>
+                    <option value="Birmingham">Birmingham</option>
+                    <option value="Coventry">Coventry</option>
+                    <option value="Sandwell">Sandwell</option>
+                    <option value="Solihull">Solihull</option>
+                    <option value="Walsall">Walsall</option>
+                    <option value="Warwickshire">Warwickshire</option>
+                    <option value="Worcestershire">Worcestershire</option>
+                </select><br>
+        
+                <label for="Scheme">Scheme</label><br>
+                <select name="Scheme" id="Scheme" required>
+                    <option style="display:none"></option>
+                    <option value="AB" >AB</option>
+                    <option value="AC" >AC</option>
+                    <option value="AE" >AE</option>
+                    <option value="AH" >AH</option>
+                    <option value="AL" >AL</option>
+                    <option value="AM" >AM</option>
+                    <option value="AT" >AT</option>
+                    <option value="AU" >AU</option>
+                    <option value="AY" >AY</option>
+                    <option value="BD" >BD</option>
+                    <option value="BJ" >BJ</option>
+                    <option value="BM" >BM</option>
+                    <option value="CC" >CC</option>
+                    <option value="CD" >CD</option>
+                    <option value="fill">Other</option>
+                </select><br>
+    
+                <label for="Time per Session">Time per session</label><br>
+                <input type="number" id="Time per Session" name="Time per Session" min="10" max="120" value=10><br>
+                
+                <label for="Session per week">Session per week</label><br>
+                <input type="number" id="Session per week" name="Session per week" min="1" max="10" value=1><br>
+    
+                
+
+
+            </td>
+        </tr>
+        </table>
+    
+        <!-- SLIDER ROW -->
+        <center>
+            <label for="avgscore">Average star score</label><br>
+            <input type="number" id="mixer" name="avgscore" min="0" max="5" value=0><br>
+
+        
+    
+    </center>
+        <br><br>
+    
+        <!-- BUTTON ROW -->
+        <!-- <tr id="buttondiv" class="form-group"> -->
+        <center>
+            <button class="button" onclick="showPicture()">
+                <!-- <button type="submit">Predict outcomes</button> -->
+                Predict outcomes
+            </button>
+        </center>
+        <!-- </tr> -->
+    
+    
+    </td>
+    
+    
+    <td style="width:25%"></td>
+    
+    
+    </tr> <!--CLOSING THE TABLE TR-->
+    
+    </table>
+    <br>
+    
+    <div id="RESULTPAGE"></div>
+
+    {% if hh=='yes' %}
+
+    <center><h2>ESTIMATED RESULTS</h2></center>
+    
+    
+    
+    <table>
+        <td id="BIGRIGHT">
+            <!-- PREDICTION TEXT ROW -->
+            <center>
+                <p id="predictiontext">{{ prediction_text }}</p>
+                <p id="predictiontext">{{ complexity_score }}</p>
+        
+            <!-- PLOTS ROW -->
+
+
+
+
+
+            <!-- <canvas id="DemoCanvas" width="500" height="200"></canvas>
+            <script>
+            var canvas = document.getElementById("DemoCanvas");
+            if (canvas.getContext)
+            {
+            var ctx = canvas.getContext('2d');
+            ctx.lineJoin = "round";
+            ctx.lineWidth = "25";
+            ctx.strokeStyle = "#EEF1FF";
+            ctx.strokeRect(20, 50, 250, 20);
+            ctx.strokeStyle = "#73A1FF";
+            ctx.strokeRect(150, 50, 50, 20);
+            ctx.lineJoin = "bevel";
+            ctx.lineWidth = "15";
+            ctx.strokeStyle = "#0021B6";
+            ctx.strokeRect(175, 46, 2, 28);
+            }
+            </script> -->
+            
+
+            BAAAAR
+            <br><br>
+            BAAAAR
+            <br><br>
+            BAAAAR
+            <br><br>
+            
+        
+        </center>
+        </td>
+    
+    
+    </table>
+    
+    
+    
+    
+    <center><h2>ACCOMODATION OUTCOMES</h2></center>
+    
+    
+    <table id="acc">
+        <td id="outcomeleft">
+        <img src='static/graphs/plot1.png' id="plot" class="zoomable"  onclick="resizeImage(this)">
+        <img src='static/graphs/plot1.png'id="plot" class="zoomable">
+        <img src='static/graphs/plot1.png' id="plot" class="zoomable">
+    
+
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+          </div>
+        <!-- <img src='static/graphs/tps_tenancy.png' id="plot1" class="zoomable">
+        <img src='static/graphs/spw_tenancy.png' id="plot2" class="zoomable">
+        <img src='static/graphs/scheme.png' id="plot3" class="zoomable"> -->
+    
+    
+
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById("myImg");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function(){
+              modal.style.display = "block";
+              modalImg.src = this.src;
+              captionText.innerHTML = this.alt;
+            }
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+              modal.style.display = "none";
+            }
+            </script>
+    
+        </td> 
+    
+    
+        </table>
+        
+        <center><h2>EDUCATION AND EMPLOYABILITY OUTCOMES</h2></center>
+    
+        
+        <table id="eet">
+            <td id="outcomeright">
+    
+                <img src='static/graphs/plot1.png' id="plot" class="zoomable">
+                <img src='static/graphs/plot1.png' id="plot" class="zoomable">
+    
+                <!-- <img src='static/graphs/tps_eet.png' id="plot4" class="zoomable">
+                <img src='static/graphs/spw_eet.png' id="plot5" class="zoomable"> -->
+    
+            </td>
+            {% else %}
+            {% endif %}
+    
+    
+    
+        </table>
+    
+    
+        <tr>
+    
+    
+        </tr>
+    
+    
+    
+    
+    
+    
+    
+    </tr>
+    </table>
+    
+    </form>
+    
+    
+    
+    
+    </body>
+    </html>
+    
+    
+    </div>
