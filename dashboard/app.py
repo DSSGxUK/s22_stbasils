@@ -452,5 +452,96 @@ def make_graph_Scheme(x):
     plt.ylabel("Positive outcome Probability")
     plt.savefig('static/graphs/scheme.png')
 
+
+# STAR SCORE PREDICTION
+
+def get_model():
+    '''
+    Save the tuned model into pickle file.
+
+    Return:
+        best_model: model to predict the star outcome
+    '''
+    output = open('model_star/model.pkl','rb')
+    best_model = pickle.load(output)
+    output.close()
+    return best_model
+
+
+def transform_input(x):
+    '''
+    Transform dictionary received from html form into the dictionary to feed to the model.
+    
+    Parameters:
+        x: dictionary from html model
+    
+    Return:
+        transformed: dictionary to feed to the model
+    '''
+    transformed = []
+
+#   'med_issues', 'G1', 'A1', 'Age.at.Start', 'Num.Sessions',
+#   'Time.per.Session', 'D1', 'avgscore', 'EET' 'Area', 'Scheme'
+
+    output = open('model_star/StandardScaler.pkl', 'rb')
+    le = pickle.load(output)
+    output.close()
+    a = le.transform([[x['Age.at.Start'],x['Num.Sessions'],x['Time.per.Session']]])
+    
+    output = open('model_star/OneHotEncoder.pkl', 'rb')
+    ohe = pickle.load(output)
+    output.close()
+    codes = ohe.transform([[x['EET.status'],x['Area'],x['Scheme']]]).toarray()
+
+    transformed.append(x['med_issues'])
+    transformed.append(x['G1'])
+    transformed.append(x['A1'])
+    transformed.append(a[0][0]) #age
+    transformed.append(a[0][1]) #num
+    transformed.append(a[0][2]) #time
+
+    transformed.append(x['D1'])
+    transformed.append(x['avgscore'])
+
+    transformed = np.asarray(transformed)
+    transformed = np.append(transformed,codes[0]) #eet, area, scheme
+
+    transformed = np.reshape(transformed,(1,28))
+
+    return transformed
+
+
+def GenerateStarPrediction(x):
+    '''
+    Run the model training process.
+
+    Parameters:
+        x: the dictionary of values gotten from the html page
+    Return:
+        prediction: predicted final star score
+    '''
+    model = get_model()
+
+    tx = transform_input(x)
+    prediction = model.predict(tx)
+    return list(prediction)[0]
+
+@app.route('/predictstar', methods=['POST', 'GET'])
+def predictstar():
+    form = request.form.to.dict()
+    probab_star = GenerateStarPrediction(form)
+
+    return render_template('starindex.html', star_score_estimated = '{}'.format(round(probab_star, 2)), showOutputStar = 'yes')
+
+
+
+
+
+
+
+
+
+
+
 if __name__=="__main__":
 	app.run(debug=True)
