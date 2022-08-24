@@ -53,113 +53,112 @@
         <tr>
             <td id="left">
                 <label for="Gender">Gender</label><br>
-                <select name="Gender" id="Gender">
-			    'Male', 'Female', 'Trans_Gender', nan
-			    <option value="Male" selected>Male</option>
+                <select name="Gender" id="Gender" required>
+			    <option value="Male">Male</option>
 			    <option value="Female" >Female</option>
-			    <option value="Trans_Gender" >BD</option>
+			    <option value="Trans_Gender" >Transgender</option>
 			    <option value="">Other</option>
 			</select><br>
     
                 <label for="Nationality">Nationality</label><br>
-                <select name="Nationality" id="Nationality">
-			    <option value="UK National Resident in UK" selected>UK National Resident in UK</option>
+                <select name="Nationality" id="Nationality" required>
+			    <option value="UK National Resident in UK">UK National Resident in UK</option>
 			    <option value="Non-EEA country national">Non-EEA country national</option>
 			    <option value="Other EEA country national">Other EEA country national</option>
-			    <option value="">Don't Know</option>
+			    <option value="">Unknown</option>
 			</select><br>
                 
                 <label for="Sexual Orientation">Sexual orientation</label><br>
-                <select name="Sexual Orientation" id="Sexual Orientation">
-			    <option value="Heterosexual or Straight" selected>Heterosexual or Straight</option>
+                <select name="Sexual Orientation" id="Sexual Orientation" required>
+			    <option value="Heterosexual or Straight">Heterosexual or Straight</option>
 			    <option value="Bisexual">Bisexual</option>
-			    <option value="Refused to answer">Refused to answer</option>
 			    <option value="Gay or Lesbian">Gay or Lesbian</option>
+			    <option value="Refused to answer">Refused to answer</option>
 			    <option value="Other">Other</option>
-			    <option value="">Don't Know</option>
+			    <option value="">Unknown</option>
 			</select><br>
     
                 <label for="Marital Status">Marital status</label><br>
-                <select name="Marital Status" id="Marital Status">
-			    <option value="Single" selected>Single</option>
-			    <option value="Single Lone Parent">Single Lone Parent</option>
-			    <option value="Other" >Other</option>
-			    <option value="C">C</option>
+                <select name="Marital Status" id="Marital Status" required>
+			    <option value="Single">Single</option>
 			    <option value="Single Parent">Single Parent</option>
-			    <option value="">Don't Know</option>
+			    <option value="Single Lone Parent">Single Lone Parent</option>
+			    <option value="C">C</option>
+			    <option value="Other">Other</option>
+			    <option value="">Unknown</option>
 			</select><br>
     
                 <label for="Religion">Religion</label><br>
-                <select name="Religion" id="Religion">
-			    <option value="Muslim" selected>Muslim</option>
-			    <option value="Christian - Other">Christian</option>
-			    <option value="No Religion">No Religion</option>
-			    <option value="fill">Others</option>
-			    <option value="">Not Known</option>
-			    <option value="Refused to answer">Refused to answer</option>
+                <select name="Religion" id="Religion" required>
+			      <option value="Christian - Other">Christian</option>
+                    	      <option value="Muslim">Muslim</option>
+                    	      <option value="fill">Other</option>
+                    	      <option value="No Religion">No religion</option>
+                    	      <option value="Refused to answer">Refused to answer</option>
+                    	      <option value="">Unknown</option>
 			</select><br>
                 
                 <label for="Preferred Language">Preferred language</label><br>
-                <select name="Preferred Language" id="Preferred Language">
-			    <option value="** English">** English</option>
-			    <option value="** Believed to be English">** Believed to be English</option>
+                <select name="Preferred Language" id="Preferred Language" required>
+			    <option value="** English">English</option>
+			    <option value="** Believed to be English">Believed to be English</option>
 			    <option value="fill">Other</option>
-			    <option value="">Not Known</option>
+			    <option value="">Unknown</option>
 			</select><br>
     
                 <label for="EET status">EET status</label><br>
-                <select name="EET status" id="EET status">
-			    <option value="EET" selected>EET</option>
+                <select name="EET status" id="EET status" required>
+			    <option value="EET">EET</option>
 			    <option value="NEET">NEET</option>
-			    <option value="Not Known">Not Known</option>
 			    <option value="">Other</option>
+			    <option value="Not Known">Unknown</option>
 			</select><br>
     
                 <label for="Economic Status">Economic status</label><br>
-                <select name="Economic Status" id="Economic Status">
-			    <option value="Full Time Work (30+ hrs)" selected>Full Time Work (30+ hrs)</option>
-			    <option value="Part Time Work (<30 hrs)">Part Time Work (&lt;30 hrs)</option>
-			    <option value="NEET But NO Beneifts">NEET But NO Beneifts</option>
-			    <option value="Receipt of Benefits">Receipt of Benefits</option>
-			    <option value="Job Seeker">Job Seeker</option>
-			    <option value="No Income">No Income</option>
-			    <option value="Full Time Student">Full Time Student</option>
-			    <option value="College">College</option>
-			    <option value="Not Seeking Work">Not Seeking Work</option>
+                <select name="Economic Status" id="Economic Status" required>
+                    <option value="Full Time Work (30+ hrs)">Full time work (30+ hrs)</option>
+                    <option value="Part Time Work (<30 hrs)">Part time work (&lt;30 hrs)</option>
+                    <option value="NEET But NO Beneifts">NEET but NO beneifts</option>
+                    <option value="Receipt of Benefits">Receipt of benefits</option>
+                    <option value="Job Seeker">Job seeker</option>
+                    <option value="No Income">No income</option>
+                    <option value="Full Time Student">Full time student</option>
+                    <option value="College">College</option>
+                    <option value="Not Seeking Work">Not seeking work</option>
 			</select><br>
     
                 <label for="Acc Type prev">Previous accomodation type</label><br>
-                <select name="Acc Type prev" id="Acc Type prev">
-			    <option value="Living with Family (Family Other)" selected>Living with Family (Family Other)</option>
-			    <option value="Social rented supported housing or hostel ">Social rented supported housing or hostel</option>
-			    <option value="Living with Friends ">Living with Friends</option>
-			    <option value="Temporary Accommodation">Temporary Accommodation</option>
-			    <option value="No Fixed Abode">No Fixed Abode</option>
-			    <option value="Living with Family (Family Home)">Living with Family (Family Home)</option>
-			    <option value="Rough sleeping (in judgement of assessor) ">Rough sleeping (in judgement of assessor)</option>
-			    <option value="">Don't Know</option>
-			    <option value="Private Rented Sector: HMO">Private Rented Sector: HMO</option>
-			    <option value="Looked after children placement ">Looked after children placement </option>
-			    <option value="fill">Other</option>
+                <select name="Acc Type prev" id="Acc Type prev" required>
+                    <option value="Living with Family (Family Home)">Living with family (Family home)</option>
+                    <option value="Living with Family (Family Other)">Living with family (Family other)</option>
+                    <option value="Living with Friends ">Living with friends</option>
+                    <option value="Social rented supported housing or hostel ">Social rented supported housing or hostel</option>
+                    <option value="Temporary Accommodation">Temporary accommodation</option>
+                    <option value="Private Rented Sector: HMO">Private rented sector: HMO</option>
+                    <option value="Looked after children placement ">Looked after children placement </option>
+                    <option value="No Fixed Abode">No fixed abode</option>
+                    <option value="Rough sleeping (in judgement of assessor) ">Rough sleeping (in judgement of assessor)</option>
+                    <option value="fill">Other</option>
+                    <option value="">Unknown</option>
 			</select><br>
                     
                 <label for="Area">Area</label><br>
-                <select name="Area" id="Area">
-			    <option value="Birmingham" selected>Birmingham</option>
-			    <option value="Warwickshire">Warwickshire</option>
-			    <option value="Solihull">Solihull</option>
-			    <option value="Worcestershire">Worcestershire</option>
-			    <option value="Sandwell">Sandwell</option>
-			    <option value="Coventry">Coventry</option>
-			    <option value="Walsall">Walsall</option>
+                <select name="Area" id="Area" required>
+                    <option value="Birmingham">Birmingham</option>
+                    <option value="Coventry">Coventry</option>
+                    <option value="Sandwell">Sandwell</option>
+                    <option value="Solihull">Solihull</option>
+                    <option value="Walsall">Walsall</option>
+                    <option value="Warwickshire">Warwickshire</option>
+                    <option value="Worcestershire">Worcestershire</option>
 			</select><br>
                 
                 <label for="Service Type">Service type</label><br>
-                <select name="Service Type" id="Service Type">
-			    <option value="Floating Support" selected>Floating Support</option>
+                <select name="Service Type" id="Service Type" required>
+			    <option value="Floating Support" selected>Floating support</option>
 			    <option value="Accommodation">Accommodation</option>
-			    <option value="Rough Sleepers">Rough Sleepers</option>
-			    <option value="Supported Lodgings">Supported Lodgings</option>
+			    <option value="Rough Sleepers">Rough sleepers</option>
+			    <option value="Supported Lodgings">Supported lodgings</option>
 			</select><br>
             </td>
     
@@ -171,7 +170,7 @@
                 <label for="Medical Issue">Medical issues</label><br>
                 <select name="Medical Issue" id="Medical Issue">
                     <option value="Yes">Yes</option>
-                    <option value="No" selected>No</option>
+                    <option value="No">No</option>
                 </select><br>
                  
                 <label for="TotalMentalHealth">Total mental health disabilities</label><br>
@@ -180,56 +179,58 @@
                 <label for="TotalDisabilty">Total physical health disabilities</label><br>
                 <input type="number" id="TotalDisabilty" name="TotalDisabilty" min="0" max="10" value=0><br>
                 
-                <label for="B1">B1</label><br>
-                <select name="B1" id="B1">
-			    <option value="No benefits" selected>No benefits</option>
-			    <option value="Housing Benefit" >Housing Benefit</option>
-			    <option value="Universal Credit">Universal Credit</option>
-			    <option value="Don't Know / Refused">Don't Know / Refused</option>
+                <label for="B1">Claiming benefits towards housing costs</label><br>
+                <select name="B1" id="B1" required>
+                    <option value="Housing Benefit" >Housing Benefit</option>
+                    <option value="Universal Credit">Universal Credit</option>
+                    <option value="No benefits">No benefits</option>
+                    <option value="Don't Know / Refused">Unknown</option>
 			</select><br>
     
-                <label for="C1">C1</label><br>
-                <select name="C1" id="C1">
-			    <option value="N/A - Not Applicable" selected>N/A - Not Applicable</option>
-			    <option value="No">No</option>
-			    <option value="Yes">yes</option>
-			    <option value="">Not Known</option>
+                <label for="C1">Currently pregnant</label><br>
+                <select name="C1" id="C1" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="N/A - Not Applicable">Not applicable</option>
+                    <option value="">Unknown</option>
 			</select><br>
     
-                <label for="H1">H1</label><br>
-                <select name="H1" id="H1" >
+                <label for="H1">Known to probation</label><br>
+                <select name="H1" id="H1" required>
                     <option value="Yes">Yes</option>
-                    <option value="No" selected>No</option>
+                    <option value="No">No</option>
                 </select><br>
     
-                <label for="I1">I1</label><br>
-                <select name="I1" id="I1">
+                <label for="I1">Known to any other Statutory service</label><br>
+                <select name="I1" id="I1" required>
                     <option value="Yes">Yes</option>
-                    <option value="No" selected>No</option>
+                    <option value="No">No</option>
                 </select><br>
     
-                <label for="G1">G1</label><br>
-                <select name="G1" id="G1">
+                <label for="G1">Known to Youth offending services</label><br>
+                <select name="G1" id="G1" required>
                     <option value="Yes">Yes</option>
-                    <option value="No" selected>No</option>
+                    <option value="No">No</option>
                 </select><br>
     
                 <label for="Scheme">Scheme</label><br>
-                <select name="Scheme" id="Scheme">
-			    <option value="AE" selected>AE</option>
-			    <option value="CC" >CC</option>
-			    <option value="BD" >BD</option>
-			    <option value="CD" >CD</option>
-			    <option value="AL" >AL</option>
-			    <option value="AC" >AC</option>
-			    <option value="BM" >BM</option>
-			    <option value="BJ" >BJ</option>
-			    <option value="AT" >AT</option>
+                <select name="Scheme" id="Scheme" required>
 			    <option value="AB" >AB</option>
+			    <option value="AC" >AC</option>
+			    <option value="AE">AE</option>
+			    <option value="AH" >AH</option>
+			    <option value="AL" >AL</option>
+			    <option value="AM" >AM</option>
+			    <option value="AT" >AT</option>
 			    <option value="AU" >AU</option>
 			    <option value="AY" >AY</option>
-			    <option value="AM" >AM</option>
-			    <option value="AH" >AH</option>
+
+			    <option value="BD" >BD</option>
+			    <option value="BJ" >BJ</option>
+			    <option value="BM" >BM</option>
+
+			    <option value="CC" >CC</option>
+			    <option value="CD" >CD</option>
 			    <option value="fill">Other</option>
 			</select><br>
     
